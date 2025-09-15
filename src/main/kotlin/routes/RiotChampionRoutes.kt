@@ -1,14 +1,15 @@
-package com.example.routes
+package routes
 
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 
-fun Route.summonerRoutes() {
-    route("/summoner") {
+fun Route.championRoutes() {
+    route("/champion") {
         get("/") {
-            call.respondText("Summoner Index")
+            call.respondText("Champion Index")
         }
+
     }
 }
