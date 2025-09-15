@@ -10,7 +10,7 @@ enum class RiotRegion(val baseUrl: String = "asia.api.riotgames.com") {
 
 
 // 라이엇 정의 플랫폼
-enum class RiotPlatform(val baseUrl: String) {
+enum class RiotPlatform(val baseUrl: String = "kr.api.riotgames.com") {
     BR1("br1.api.riotgames.com"),
     EUN1("eun1.api.riotgames.com"),
     EUW1("euw1.api.riotgames.com"),
@@ -66,7 +66,12 @@ enum class RiotLanguage(val code: String) {
 
 // 라이엇 엔드포인트 정의
 object RiotEndpointUrl {
+    // Account
     const val ACCOUNT_BY_RIOT_ID = "/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}?api_key={apiKey}"
+
+
+    // Summoner
+    const val SUMMONER_BY_PUUID = "/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}?api_key={apiKey}"
 }
 
 
@@ -90,11 +95,23 @@ fun buildUrl(
 }
 
 
+
+
 object RiotEndpoints {
     object Account {
-        fun byRiotId(region: RiotRegion, gameName: String, tagLine: String): String =
+        fun getAccountInfo(region: RiotRegion, gameName: String, tagLine: String): String =
             buildUrl(region.baseUrl, RiotEndpointUrl.ACCOUNT_BY_RIOT_ID,
                 mapOf("gameName" to gameName, "tagLine" to tagLine))
 
+    }
+
+
+    object Summoner {
+        fun getMySummonerInfo(platform: RiotPlatform, encryptedPUUID: String): String =
+            buildUrl(
+                platform.baseUrl,
+                RiotEndpointUrl.SUMMONER_BY_PUUID,
+                mapOf("encryptedPUUID" to encryptedPUUID)
+            )
     }
 }
