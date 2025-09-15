@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.plugins.configureThymeleaf
 import config.RiotGlobals
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.application.*
@@ -13,6 +14,7 @@ fun Application.module() {
     configureHTTP()
     configureMonitoring()
     configureRouting()
+    configureThymeleaf()
 
     RiotGlobals.apiKey = environment.config.property("ktor.riot.apiKey").getString()
     println("Loaded Riot API Key: ${RiotGlobals.apiKey}")

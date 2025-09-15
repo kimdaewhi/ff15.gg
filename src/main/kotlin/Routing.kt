@@ -3,6 +3,8 @@ package com.example
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.thymeleaf.Thymeleaf
+import io.ktor.server.thymeleaf.ThymeleafContent
 import routes.championRoutes
 import routes.matchRoutes
 import routes.accountRoutes
@@ -14,7 +16,11 @@ fun Application.configureRouting() {
         matchRoutes()
 
         get("/") {
-            call.respondText("Hello World!")
+            call.respond(
+                ThymeleafContent(
+                    template = "index",
+                    model = mapOf("name" to "Ktor"))
+            )
         }
     }
 }
