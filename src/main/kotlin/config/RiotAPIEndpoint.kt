@@ -148,6 +148,15 @@ object RiotEndpoints {
     }
 
 
+    object Champion {
+        fun getChampionList(ddUrl: String, params: Map<String, String>): String =
+            buildDataDragonUrl(ddUrl, params)
+
+        fun getChampionIconUrl(ddUrl: String, params: Map<String, String>): String =
+            buildDataDragonUrl(ddUrl, params)
+    }
+
+
     object Summoner {
         fun getMySummonerInfo(platform: RiotPlatform, encryptedPUUID: String): String =
             buildUrl(
@@ -155,5 +164,9 @@ object RiotEndpoints {
                 RiotEndpointUrl.SUMMONER_BY_PUUID,
                 mapOf("encryptedPUUID" to encryptedPUUID)
             )
+
+        fun getSummonerIconUrl(ddUrl: String, params: Map<String, String>): String =
+            buildDataDragonUrl(ddUrl, params)
+
     }
 }

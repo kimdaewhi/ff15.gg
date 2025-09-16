@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>챔피언 목록</title>
+    <link rel="stylesheet" href="/static/css/champions.css"/>
+</head>
+<body>
+<section class="container">
+    <div class="card">
+        <div class="grid">
+            <!-- ✅ 샘플 1개만 하드코딩 -->
+            <div class="tile">
+                <div class="thumb">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/15.18.1/img/champion/LeeSin.png" alt="리 신"/>
+                </div>
+                <p class="name">리신</p>
+            </div>
+
+
+            <div class="tile" th:each="c : ${champions}">
+              <div class="thumb"><img th:src="${c.iconUrl}" th:alt="${c.name}"/></div>
+              <p class="name" th:text="${c.name}"></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

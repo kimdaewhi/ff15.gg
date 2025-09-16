@@ -22,11 +22,9 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 fun Route.accountRoutes() {
-    route("/account") {
-        get("/") {
-            call.respondText("Account Index")
-        }
+    val ddVersion = "15.18.1"
 
+    route("/account") {
         // ❌ 닉네임 기반 puuid 조회(사용 x)
         get("/get-by-riotid/{gameName}/{tagLine}") {
             val gameName = call.parameters["gameName"] ?: ""        // 닉네임
@@ -53,9 +51,8 @@ fun Route.accountRoutes() {
             )
 
             // DDragon 버전 임시로 고정, 소환사 프로필 아이콘 url 생성
-            val ddVersion = "15.18.1"
-            val profileIconUrl = buildDataDragonUrl(
-                ddurl=DataDragonUrl.PROFILE_ICON_ASSET,
+            val profileIconUrl = RiotAccountService.getSummonerProfileIconUrl(
+                dataDragonUrl = DataDragonUrl.PROFILE_ICON_ASSET,
                 params= mapOf(
                     "version" to ddVersion,
                     "language" to RiotLanguage.KO_KR.code,
@@ -64,9 +61,8 @@ fun Route.accountRoutes() {
             )
 
             // 새로고침 url 만들어서 같이 넘기기
-            val refreshUrl =
-                "/account/get-summoner-info/${
-                    URLEncoder.encode(p.gameName, StandardCharsets.UTF_8)
+            val refreshUrl = "/account/get-summoner-info/${
+                URLEncoder.encode(p.gameName, StandardCharsets.UTF_8)
                 }/${
                     URLEncoder.encode(p.tagLine, StandardCharsets.UTF_8)
                 }"

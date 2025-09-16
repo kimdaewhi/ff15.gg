@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
-data class RiotAccountResponseDTO(
+data class RiotAccountResponseDto(
     val puuid: String,
     val gameName: String,
     val tagLine: String
@@ -15,7 +15,7 @@ data class RiotAccountResponseDTO(
 
 
 @Serializable
-data class RiotSummonerResponseDTO(
+data class RiotSummonerResponseDto(
     val puuid: String,
     val profileIconId: Int,
     val summonerLevel: Long,
