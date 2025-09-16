@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title th:text="${champ.name} + ' - 상세'">챔피언 상세</title>
+    <link rel="stylesheet" href="/static/css/champion-detail.css"/>
+</head>
+<body>
+<section class="container">
+
+    <!-- 헤더 -->
+    <div class="header-card">
+        <img class="avatar" th:src="${iconUrl}" alt="챔피언 아이콘"/>
+
+        <div class="title">
+            <h1>
+                <span th:text="${champ.name}">징크스</span>
+                <small th:text="${champ.title}">난폭한 말괄량이</small>
+            </h1>
+            <div class="version" th:text="'v' + ${v}">v15.18.1</div>
+
+            <!-- 스킬 아이콘 + 툴팁 -->
+            <div class="skill-row">
+                <div class="skill" th:if="${passiveIcon != null}">
+                    <img th:src="${passiveIcon}" alt="P"/>
+                    <div class="tip">
+                        <b th:text="'P - ' + ${champ.passive.name}">신난다!</b>
+                        <div class="muted" th:text="${champ.passive.description}"></div>
+                    </div>
+                </div>
+                <div class="skill" th:each="s, i : ${spells}">
+                    <img th:src="${s.icon}" th:alt="${s.id}"/>
+                    <div class="tip">
+<!--                        <b th:text="${#lists.list('Q','W','E','R')[i.index]} + ' - ' + s.name">Q - 휘릭휘릭!</b>-->
+                        <b>휘릭휘릭!</b>
+                        <!-- tooltip(HTML) 가능 -->
+                        <div class="muted" th:utext="${s.tooltip}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탭 -->
+    <div class="tabs">
+        <div class="tab-headers">
+            <button data-tab="base" class="active">기본 정보</button>
+            <button data-tab="build">빌드(샘플)</button>
+            <button data-tab="skins">스킨</button>
+        </div>
+
+        <div class="tab-body">
+
+            <!-- 기본 정보 -->
+            <section class="tab-panel active" id="tab-base">
+                <h2>기본 스탯</h2>
+                <div class="stats-grid" th:if="${champ.stats != null}">
+                    <div><span>체력</span><b th:text="${champ.stats.hp}"></b></div>
+                    <div><span>성장 체력</span><b th:text="${champ.stats.hpperlevel}"></b></div>
+                    <div><span>공격력</span><b th:text="${champ.stats.attackdamage}"></b></div>
+                    <div><span>성장 공격력</span><b th:text="${champ.stats.attackdamageperlevel}"></b></div>
+                    <div><span>마나/자원</span><b th:text="${champ.stats.mp}"></b></div>
+                    <div><span>성장 자원</span><b th:text="${champ.stats.mpperlevel}"></b></div>
+                    <div><span>공속</span><b th:text="${champ.stats.attackspeed}"></b></div>
+                    <div><span>이동속도</span><b th:text="${champ.stats.movespeed}"></b></div>
+                    <div><span>방어력</span><b th:text="${champ.stats.armor}"></b></div>
+                    <div><span>마법저항력</span><b th:text="${champ.stats.spellblock}"></b></div>
+                    <div><span>사거리</span><b th:text="${champ.stats.attackrange}"></b></div>
+                    <div><span>체력 재생</span><b th:text="${champ.stats.hpregen}"></b></div>
+                </div>
+
+                <h2>배경</h2>
+                <p class="lore" th:text="${champ.lore != null ? champ.lore : champ.blurb}">설명</p>
+            </section>
+
+            <!-- 빌드(샘플 자리) -->
+            <section class="tab-panel" id="tab-build">
+                <p class="placeholder">빌드/룬/아이템은 추후 DDragon 외부 데이터로 연동 예정입니다.</p>
+            </section>
+
+            <!-- 스킨 -->
+            <section class="tab-panel" id="tab-skins">
+                <div class="skins" th:if="${skins != null}">
+                    <figure class="skin" th:each="sk : ${skins}">
+                        <img th:src="${sk.splash}" th:alt="${sk.name}"/>
+                        <figcaption th:text="${sk.name}">기본 스킨</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // 탭 스위치 (바닐라)
+    const btns=[...document.querySelectorAll('.tab-headers button')];
+    const panels={
+        base: document.getElementById('tab-base'),
+        build: document.getElementById('tab-build'),
+        skins: document.getElementById('tab-skins'),
+    };
+    btns.forEach(b=>b.addEventListener('click', ()=>{
+        btns.forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        Object.values(panels).forEach(p=>p.classList.remove('active'));
+        panels[b.dataset.tab].classList.add('active');
+    }));
+</script>
+</body>
+</html>

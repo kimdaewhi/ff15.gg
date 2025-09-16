@@ -1,6 +1,6 @@
 package services
 
-import DTO.ChampionCatalogDto
+import DTO.RiotChampionCatalogDto
 import DTO.ChampionIcon
 import config.DataDragonUrl
 import config.RiotEndpoints
@@ -11,10 +11,10 @@ import plugins.httpClient
 
 object RiotChampionService {
 
-    suspend fun getChampionCatalog(ddUrl: String, params: Map<String, String>): ChampionCatalogDto {
+    suspend fun getChampionCatalog(ddUrl: String, params: Map<String, String>): RiotChampionCatalogDto {
         val championUrl = RiotEndpoints.Champion.getChampionList(ddUrl, params)
 
-        val response = httpClient.get(championUrl).body<ChampionCatalogDto>()
+        val response = httpClient.get(championUrl).body<RiotChampionCatalogDto>()
 
         return response
     }
@@ -25,7 +25,7 @@ object RiotChampionService {
         val listUrl = RiotEndpoints.Champion.getChampionList(ddUrl, params)
 
         // 2) GET → 3) ChampionCatalogDto로 파싱
-        val catalog: ChampionCatalogDto = httpClient.get(listUrl).body()
+        val catalog: RiotChampionCatalogDto = httpClient.get(listUrl).body()
 
         // 4) ChampionIcon 생성 (아이콘 URL은 Endpoints로 치환)
         val icons = catalog.data.values.map { dto ->
