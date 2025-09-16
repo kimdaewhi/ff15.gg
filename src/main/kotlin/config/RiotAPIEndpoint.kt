@@ -98,7 +98,7 @@ object DataDragonUrl {
     const val RUNE_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/{runeIcon}.png"                                        // 룬 아이콘
 
     const val PROFILE_ICON_LIST = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/profileicon.json"              // 소환사 프로필 아이콘 전체정보
-    const val PROFILE_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/profileicon/{profileiconId}.png"          // 소환사 프로필 아이콘
+    const val PROFILE_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/profileicon/{profileIconId}.png"          // 소환사 프로필 아이콘
 
     const val MAP_INFO = "https://static.developer.riotgames.com/docs/lol/maps.json"                                                // 맵 정보
     const val MINIMAP_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/map/map{mapId}.png"                            // 미니맵
@@ -121,6 +121,18 @@ fun buildUrl(
     url = url.replace("{apiKey}", RiotGlobals.apiKey)
 
     return url
+}
+
+fun buildDataDragonUrl(
+    ddurl: String,
+    params: Map<String, String> = emptyMap()
+): String {
+    var convertedUrl = ddurl
+
+    params.forEach { (key, value) ->
+        convertedUrl = convertedUrl.replace("{$key}", value)
+    }
+    return convertedUrl
 }
 
 
