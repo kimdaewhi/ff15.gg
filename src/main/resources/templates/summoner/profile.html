@@ -10,48 +10,13 @@
 
     <body>
         <section class="container">
-            <div class="card">
-                <!-- LEFT: Avatar -->
-                <div class="avatar-wrap">
-                    <img class="avatar" th:src="${profileIconUrl}" alt="소환사 아이콘"/>
-                    <div class="level-badge" th:text="${p.summonerLevel}">248</div>
-                </div>
-
-                <!-- RIGHT: Header / Actions -->
-                <div class="header">
-                    <div class="name-line">
-                        <h1 class="summoner-name">
-                            <span th:text="${p.gameName}">뾰루퉁한파우더</span>
-                            <span class="tag" th:text="'#' + ${p.tagLine}">#3131</span>
-                        </h1>
-
-                        <button class="icon-btn" title="즐겨찾기">
-                            <!-- 별 아이콘 -->
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                                <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="actions">
-                        <a class="primary-btn"
-                           th:href="${refreshUrl != null ? refreshUrl : '#'}" >
-                            전적 갱신
-                        </a>
-                        <span class="updated" th:text="'최근 갱신: ' + ${lastUpdated}">최근 갱신: 2시간 전</span>
-                    </div>
-
-                    <!-- 시즌 뱃지 (옵션) -->
-                    <div class="badges" th:if="${badges != null}">
-                        <span class="badge" th:each="b : ${badges}" th:text="${b}">2024-2 Bronze 1</span>
-                    </div>
-                </div>
-
-                <!-- RIGHT: Placeholder(추후 확장 영역) -->
-                <div class="placeholder">
-                    <!-- 나중에 챔피언 정보/매치 히스토리/룬 등 섹션을 여기에 추가 -->
-                    <div class="empty">추가 섹션 준비 중…</div>
-                </div>
+            <div class="profile-header"
+                 th:insert="~{summoner/fragments/profile-header ::
+                 profileHeader(p=${p},
+                 profileIconUrl=${profileIconUrl},
+                 lastUpdated=${lastUpdated},
+                 refreshUrl=${refreshUrl},
+                 badges=${badges})}">
             </div>
         </section>
     </body>

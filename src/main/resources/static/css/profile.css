@@ -7,8 +7,8 @@
     --accent: #60a5fa;
     --chip: #374151;
     --chip-text: #e5e7eb;
-    --primary: #2563eb;
-    --primary-pressed: #1d4ed8;
+    --primary: #696fea;
+    --primary-pressed: #5057e6;
     --border: #a6a6a6;
 }
 
@@ -66,7 +66,7 @@ html, body { margin:0; padding:0; background: var(--bg); color: var(--text); fon
     /*border: 1px solid var(--border);*/
     cursor: pointer;
 }
-.icon-btn:hover { color: var(--text); border-color: #2a3647; }
+.icon-btn:hover { color: var(--text); border-color: #5057e6; }
 
 .actions { display: flex; align-items: center; gap: 12px; }
 .primary-btn {
