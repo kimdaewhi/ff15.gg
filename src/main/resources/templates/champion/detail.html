@@ -31,8 +31,11 @@
                 <div class="skill" th:each="s, i : ${spells}">
                     <img th:src="${s.icon}" th:alt="${s.id}"/>
                     <div class="tip">
-<!--                        <b th:text="${#lists.list('Q','W','E','R')[i.index]} + ' - ' + s.name">Q - 휘릭휘릭!</b>-->
-                        <b>휘릭휘릭!</b>
+                        <div th:each="s, i : ${spells}">
+                            <b th:text="${#strings.substring('QWER', i.index, i.index + 1)} + ' - ' + ${s.name}"></b>
+                            <div class="muted" th:utext="${s.tooltip}"></div>
+                        </div>
+
                         <!-- tooltip(HTML) 가능 -->
                         <div class="muted" th:utext="${s.tooltip}"></div>
                     </div>
@@ -45,7 +48,7 @@
     <div class="tabs">
         <div class="tab-headers">
             <button data-tab="base" class="active">기본 정보</button>
-            <button data-tab="build">빌드(샘플)</button>
+            <button data-tab="build">빌드</button>
             <button data-tab="skins">스킨</button>
         </div>
 

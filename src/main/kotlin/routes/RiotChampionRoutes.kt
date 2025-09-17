@@ -143,6 +143,8 @@ fun Route.championRoutes() {
                 "skins" to skinViews
             )
 
+            println(model)
+
             call.respond(ThymeleafContent("champion/detail", model))
         }
 

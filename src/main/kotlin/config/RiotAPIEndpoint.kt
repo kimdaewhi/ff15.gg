@@ -85,8 +85,8 @@ object DataDragonUrl {
     const val CHAMPION_LOADING_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{championId}_{num}.jpg"        // 챔피언 로딩아트
     const val CHAMPION_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/champion/{championId}.png"               // 챔피언 아이콘
 
-    const val CHAMPION_PASSIVE_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/passive/{championPassiveId}.png"      // 챔피언 패시브 아이콘
-    const val CHAMPION_SPELL_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/spell/{championSpellId}.png"            // 챔피언 스킬 아이콘
+    const val CHAMPION_PASSIVE_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/passive/{championPassiveId}"          // 챔피언 패시브 아이콘
+    const val CHAMPION_SPELL_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/spell/{championSpellId}"                // 챔피언 스킬 아이콘
 
     const val ITEM__LIST_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/item.json"                       // 아이템 전체 정보
     const val ITEM_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/item/{itemId}.png"                           // 아이템 아이콘
