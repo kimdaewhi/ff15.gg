@@ -90,6 +90,12 @@
     </div>
 </section>
 
+<!-- 오버레이 -->
+<div class="overlay" id="overlay">
+    <span class="close-btn" id="closeOverlay">&times;</span>
+    <img src="" alt="Skin Preview" id="overlayImg"/>
+</div>
+
 <script>
     // 탭 스위치 (바닐라)
     const btns=[...document.querySelectorAll('.tab-headers button')];
@@ -104,6 +110,36 @@
         Object.values(panels).forEach(p=>p.classList.remove('active'));
         panels[b.dataset.tab].classList.add('active');
     }));
+
+    const overlay = document.getElementById('overlay');
+    const overlayImg = document.getElementById('overlayImg');
+    const closeOverlay = document.getElementById('closeOverlay');
+    const skinImgs = document.querySelectorAll('.skin img');
+
+    // 이미지 클릭 → 오버레이 열기
+    skinImgs.forEach(img => {
+        img.addEventListener('click', () => {
+            overlay.classList.add('active');
+            overlayImg.src = img.src;
+            overlayImg.alt = img.alt;
+        });
+    });
+
+    // 닫기 버튼 → 오버레이 닫기
+    closeOverlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+    });
+
+    // 배경 클릭 → 오버레이 닫기
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+        }
+    });
 </script>
+
+
+
+
 </body>
 </html>
