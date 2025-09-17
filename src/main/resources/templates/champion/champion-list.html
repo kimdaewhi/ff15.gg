@@ -10,20 +10,12 @@
 <section class="container">
     <div class="card">
         <div class="grid">
-            <!-- ✅ 샘플 1개만 하드코딩 -->
-            <div class="tile">
+            <a class="tile" th:each="c : ${champions}" th:href="${'/champion/' + c.id}">
                 <div class="thumb">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/15.18.1/img/champion/LeeSin.png" alt="리 신"/>
+                    <img th:src="${c.iconUrl}" th:alt="${c.name}"/>
                 </div>
-                <p class="name">리신</p>
-            </div>
-
-
-            <div class="tile" th:each="c : ${champions}">
-              <div class="thumb"><img th:src="${c.iconUrl}" th:alt="${c.name}"/></div>
-              <p class="name" th:text="${c.name}"></p>
-            </div>
-
+                <p class="name" th:text="${c.name}"></p>
+            </a>
         </div>
     </div>
 </section>

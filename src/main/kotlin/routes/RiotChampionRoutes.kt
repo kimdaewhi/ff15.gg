@@ -21,7 +21,6 @@ fun Route.championRoutes() {
 
         get("/champions") {
             val champions = RiotChampionService.getChampionSummaryInfo(
-                ddUrl = DataDragonUrl.CHAMPION_LIST_INFO,
                 params = mapOf(
                     "version" to ddVersion,
                     "language" to RiotLanguage.KO_KR.code

@@ -31,12 +31,7 @@
                 <div class="skill" th:each="s, i : ${spells}">
                     <img th:src="${s.icon}" th:alt="${s.id}"/>
                     <div class="tip">
-                        <div th:each="s, i : ${spells}">
-                            <b th:text="${#strings.substring('QWER', i.index, i.index + 1)} + ' - ' + ${s.name}"></b>
-                            <div class="muted" th:utext="${s.tooltip}"></div>
-                        </div>
-
-                        <!-- tooltip(HTML) 가능 -->
+                        <b th:text="${#strings.substring('QWER', i.index, i.index + 1)} + ' - ' + ${s.name}"></b>
                         <div class="muted" th:utext="${s.tooltip}"></div>
                     </div>
                 </div>

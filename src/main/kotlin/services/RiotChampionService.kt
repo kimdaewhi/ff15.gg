@@ -3,13 +3,9 @@ package services
 import DTO.RiotChampionCatalogDto
 import DTO.ChampionIcon
 import DTO.RiotChampionDetailCatalogDto
-import DTO.RiotChampionDetailDto
-import config.DataDragonUrl
 import config.RiotEndpoints
-import config.RiotEndpoints.Champion.getChampionIconUrl
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.statement.bodyAsText
 import plugins.httpClient
 
 object RiotChampionService {
@@ -22,7 +18,8 @@ object RiotChampionService {
         return response
     }
 
-    suspend fun getChampionSummaryInfo(ddUrl: String, params: Map<String, String>
+
+    suspend fun getChampionSummaryInfo(params: Map<String, String>
     ): List<ChampionIcon> {
         // 1) 목록 URL 구성
         val listUrl = RiotEndpoints.Champion.getChampionList(params)
@@ -36,7 +33,7 @@ object RiotChampionService {
             val championIdForIcon = dto.image.full.substringBeforeLast('.')
 
             // https://ddragon.../cdn/{version}/img/champion/{championId}.png
-            val iconUrl = getChampionIconUrl(
+            val iconUrl = RiotEndpoints.Champion.getChampionIconUrl(
                 params = mapOf(
                     "version" to catalog.version,   // 루트의 version 사용
                     "championId" to championIdForIcon

@@ -34,12 +34,20 @@ body {
 }
 
 /* ===== 타일(카드) ===== */
-.tile {
+a.tile {
     width: var(--tile-size);
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;   /* 밑줄 제거 */
+    color: inherit;          /* 글자색은 부모 요소 따르게 */
+
+}
+
+a.tile .name {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* ===== 이미지(검은 가장자리 살짝 크롭) ===== */
