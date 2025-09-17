@@ -81,7 +81,7 @@ object DataDragonUrl {
 
     const val CHAMPION_LIST_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/champion.json"                // 챔피언 전체 정보
     const val CHAMPION_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/champion/{championId}.json"        // 특정 챔피언 정보
-    const val CHAMPION_SPLASH_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{champoinId}_{num}.jpg"          // 챔피언 스플래시 아트
+    const val CHAMPION_SPLASH_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{championId}_{num}.jpg"          // 챔피언 스플래시 아트
     const val CHAMPION_LOADING_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{championId}_{num}.jpg"        // 챔피언 로딩아트
     const val CHAMPION_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/champion/{championId}.png"               // 챔피언 아이콘
 
@@ -149,11 +149,50 @@ object RiotEndpoints {
 
 
     object Champion {
-        fun getChampionList(ddUrl: String, params: Map<String, String>): String =
-            buildDataDragonUrl(ddUrl, params)
+        // 챔피언 리스트
+        fun getChampionList(params: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_LIST_INFO,
+                params = params
+            )
 
-        fun getChampionIconUrl(ddUrl: String, params: Map<String, String>): String =
-            buildDataDragonUrl(ddUrl, params)
+        // 챔피언 아이콘
+        fun getChampionIconUrl(params: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_ICON_ASSET,
+                params = params
+            )
+
+        // 챔피언 패시브 아이콘
+        fun getPassiveIconUrl(params: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_PASSIVE_ASSET,
+                params = params
+            )
+
+        // 챔피언 스킬 아이콘
+        fun getSpellIconUrl(params: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_SPELL_ASSET,
+                params = params
+            )
+
+        // 챔피언 스플래시 아트
+        fun getSplashArtUrl(params: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_SPLASH_ASSET,
+                params = params
+            )
+
+
+        // 챔피언 상세
+        fun getChampionDetailInfo(param: Map<String, String>): String =
+            buildDataDragonUrl(
+                ddurl = DataDragonUrl.CHAMPION_INFO,
+                params = param
+            )
+
+
     }
 
 
