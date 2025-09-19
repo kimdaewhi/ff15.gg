@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body {
     margin: 0;
-    background: #ffffff;           /* 무조건 흰색 */
+    background: #f9f9f9;           /* 무조건 흰색 */
     color: #111827;
 }
 

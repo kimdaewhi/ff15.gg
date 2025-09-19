@@ -18,10 +18,13 @@
     <!-- 중앙 검색 박스 -->
     <main class="main">
         <div class="search-box">
-            <h2>소환사 정보 검색</h2>
-            <form method="get">
-                <input type="text" name="name" placeholder="소환사 이름 입력">
-                <button type="submit">검색</button>
+            <!-- 아이콘 -->
+            <img src="/static/images/ff15-icon.png" class="search-icon"/>
+            <form class="search-form" method="get">
+                <div class="search-input-wrapper">
+                    <input type="text" name="name" placeholder="소환사명 + #KR1">
+                    <button type="submit">검색</button>
+                </div>
             </form>
         </div>
     </main>
