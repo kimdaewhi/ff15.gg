@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">FF15.gg Icon</title>
+  <desc id="desc">Rounded square with blue-to-purple gradient background and white FF monogram</desc>
+  <defs>
+    <linearGradient id="ffgrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- 배경 라운드 사각형 -->
+  <rect x="12" y="12" width="232" height="232" rx="40" fill="url(#ffgrad)" filter="url(#softShadow)"/>
+
+  <!-- FF 모노그램 (도형 기반) -->
+  <!-- 왼쪽 F -->
+  <g fill="#FFFFFF">
+    <rect x="56" y="64" width="32" height="128" rx="6"/>
+    <rect x="56" y="64" width="88" height="28" rx="6"/>
+    <rect x="56" y="120" width="72" height="24" rx="6"/>
+
+    <!-- 오른쪽 F -->
+    <rect x="144" y="64" width="32" height="128" rx="6"/>
+    <rect x="144" y="64" width="56" height="28" rx="6"/>
+    <rect x="144" y="120" width="48" height="24" rx="6"/>
+  </g>
+
+  <!-- 작은 악센트 점 (브랜드 포인트) -->
+  <circle cx="208" cy="200" r="8" fill="#14B8A6" opacity="0.9"/>
+</svg>

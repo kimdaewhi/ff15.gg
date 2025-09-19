@@ -4,8 +4,12 @@
     <meta charset="utf-8"/>
     <title th:text="${champ.name} + ' - 상세'">챔피언 상세</title>
     <link rel="stylesheet" href="/static/css/champion-detail.css"/>
+
+    <!-- Ribbon Menu -->
+    <link rel="stylesheet" href="/static/css/ribbon.css">
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
 <section class="container">
 
     <!-- 헤더 -->

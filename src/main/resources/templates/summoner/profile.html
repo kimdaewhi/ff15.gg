@@ -6,8 +6,12 @@
         <title th:text="${p.gameName} + ' #' + ${p.tagLine} + ' - 프로필'">소환사 프로필</title>
         <link rel="stylesheet" href="/static/css/profile.css"/>
 
+        <!-- Ribbon Menu -->
+        <link rel="stylesheet" href="/static/css/ribbon.css">
+
     </head>
 
+    <div th:replace="fragments/header :: header"></div>
     <body>
         <section class="container">
             <div class="profile-header"

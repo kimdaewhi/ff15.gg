@@ -1,0 +1,30 @@
+/* resources/static/css/ribbon.css */
+.ribbon-header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+}
+.ribbon-header .ribbon-container {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    align-items: center;
+    gap: 1rem; /* 로고-메뉴 간격은 네가 조절 */
+}
+.ribbon-logo {
+    max-height: 40px;
+    height: auto;
+    width: auto;
+}
+.ribbon-header .ribbon-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+.ribbon-header .ribbon-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+.ribbon-header .ribbon-nav a:hover { color: #2563eb; }

@@ -1,0 +1,20 @@
+<!-- resources/templates/fragments/header.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<body>
+<header class="ribbon-header" th:fragment="header">
+    <div class="ribbon-container">
+        <a th:href="'/'">
+            <img class="ribbon-logo" src="/static/images/ff15-icon.png" alt="FF15.gg 로고"/>
+        </a>
+
+        <nav class="ribbon-nav">
+            <ul>
+                <li><a th:href="'/champion/champions'">챔피언</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</body>
+</html>

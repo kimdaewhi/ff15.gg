@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" href="/static/images/ff15-favicon.svg">
+
+    <!-- Ribbon Menu -->
+    <link rel="stylesheet" href="/static/css/ribbon.css">
+
+
     <meta charset="UTF-8">
-    <title>MyLOL Index</title>
+    <title>FF15.GG</title>
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-<!-- 상단 리본 메뉴 -->
-<header class="header">
-    <div class="container">
-        <h1 class="logo">
-            <a>MyLOL</a>
-        </h1>
-        <nav class="nav">
-            <ul>
-                <li><a th:href="'/champion/champions'">챔피언</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <div th:replace="fragments/header :: header"></div>
 
-<!-- 중앙 검색 박스 -->
-<main class="main">
-    <div class="search-box">
-        <h2>소환사 정보 검색</h2>
-        <form method="get">
-            <input type="text" name="name" placeholder="소환사 이름 입력">
-            <button type="submit">검색</button>
-        </form>
-    </div>
-</main>
+    <!-- 중앙 검색 박스 -->
+    <main class="main">
+        <div class="search-box">
+            <h2>소환사 정보 검색</h2>
+            <form method="get">
+                <input type="text" name="name" placeholder="소환사 이름 입력">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
