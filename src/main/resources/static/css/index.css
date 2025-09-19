@@ -58,7 +58,7 @@ body {
 
 /* 버튼 */
 .search-input-wrapper button {
-    background: #2563eb;
+    background: #6236ae;
     color: #fff;
     border: none;
     padding: 0.75rem 1.25rem;
@@ -68,5 +68,5 @@ body {
 }
 
 .search-input-wrapper button:hover {
-    background: #1e40af;
+    background: #785aae;
 }

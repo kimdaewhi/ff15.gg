@@ -143,7 +143,8 @@ data class RiotSpellDto(
     val vars: JsonElement? = null,
     val costType: String? = null,
     val maxammo: String? = null,
-    val range: List<Int> = emptyList(),
+    // val range: List<Int> = emptyList(),
+    val range: List<Long>? = emptyList(),
     val rangeBurn: String? = null,
     val image: RiotChampionImageDto? = null, // group: "spell"
     val resource: String? = null
