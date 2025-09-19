@@ -7,10 +7,10 @@
     <!-- Ribbon Menu -->
     <link rel="stylesheet" href="/static/css/ribbon.css">
 
-
     <meta charset="UTF-8">
     <title>FF15.GG</title>
     <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/index.js"></script>
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>
@@ -20,13 +20,15 @@
         <div class="search-box">
             <!-- 아이콘 -->
             <img src="/static/images/ff15-icon.png" class="search-icon"/>
-            <form class="search-form" method="get">
+            <form class="search-form" onsubmit="return searchSummonerInfo()">
                 <div class="search-input-wrapper">
-                    <input type="text" name="name" placeholder="소환사명 + #KR1">
+                    <input id="summoner_input" type="text" name="name" placeholder="소환사명 + #KR1">
                     <button type="submit">검색</button>
                 </div>
             </form>
         </div>
     </main>
 </body>
+
+
 </html>
