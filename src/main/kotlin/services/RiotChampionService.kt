@@ -4,6 +4,7 @@ import DTO.RiotChampionCatalogDto
 import DTO.ChampionIcon
 import DTO.RiotChampionDetailCatalogDto
 import config.RiotEndpoints
+import config.RiotRole
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import plugins.httpClient
@@ -111,13 +112,28 @@ object RiotChampionService {
             mapOf("name" to (if (skin.name == "default") "기본 스킨" else skin.name), "splash" to splash)
         }
 
+        // 역할군
+        val roleIcon = champion.tags.mapNotNull { tag ->
+            // val tagIcon = "/static/images/role/$tag.svg"
+            // mapOf("name" to tag, "icon" to tagIcon)
+            RiotRole.fromTag(tag)?.let { role ->
+                val tagIcon = "/static/images/role/$tag.svg"
+                mapOf(
+                    "name" to role.displayName,
+                    "icon" to tagIcon
+                )
+            }
+        }
+
+
         val model = mapOf(
             "v" to version,
             "iconUrl" to champIconUrl,
             "champ" to champion,
             "passiveIcon" to passiveIconUrl,
             "spells" to spellsView,
-            "skins" to skinImages
+            "skins" to skinImages,
+            "roleIcons" to roleIcon
         )
 
         return model

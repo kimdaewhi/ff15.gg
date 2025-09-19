@@ -9,7 +9,7 @@ enum class RiotRole(val displayName: String) {
     Assassin("암살자"),
     Marksman("원거리"),
     Mage("마법사"),
-    Supporter("서포터");
+    Support("서포터");
 
     companion object {
         fun fromTag(tag: String): RiotRole? =

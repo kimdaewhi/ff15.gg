@@ -8,6 +8,8 @@
 }
 *{box-sizing:border-box}
 body{margin:0; background:#f9f9f9;}
+h2 { color: #292929 }
+hr{ color: #4e4e4e; margin-top: 18px; }
 .container{max-width:1100px;margin:24px auto;padding:0 12px}
 
 .header-card{
@@ -38,7 +40,7 @@ body{margin:0; background:#f9f9f9;}
     background:var(--pill); border:1px solid var(--border); color:#111827; padding:8px 12px;
     border-radius:999px; cursor:pointer; font-weight:600; letter-spacing:.2px;
 }
-.tab-headers button.active{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+.tab-headers button.active{background:#6236ae;color:#fff;border-color:#6a25f4}
 
 .tab-panel{display:none; padding:16px; border:1px solid var(--border); border-radius:12px; background:#fff}
 .tab-panel.active{display:block}
@@ -105,4 +107,34 @@ body{margin:0; background:#f9f9f9;}
     font-size: 32px;
     color: #fff;
     cursor: pointer;
+}
+
+/* 역할군 아이콘 전체 영역 */
+.role-icons {
+    display: flex;
+    gap: 20px;             /* 아이콘 간격 넉넉하게 */
+    margin-bottom: 12px;
+    justify-content: flex-start;  /* 왼쪽 정렬, 필요 시 center */
+}
+
+/* 아이콘 + 이름 묶음 */
+.role-item {
+    display: flex;
+    flex-direction: column;  /* 세로 배치 */
+    align-items: center;
+}
+
+/* 아이콘 크기 키우기 */
+.role-icon {
+    width: 72px;   /* 기존 28px → 48px */
+    height: 72px;
+    object-fit: contain;
+}
+
+/* 아이콘 아래 이름 */
+.role-name {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
 }
