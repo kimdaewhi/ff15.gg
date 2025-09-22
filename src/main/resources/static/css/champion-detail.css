@@ -35,10 +35,39 @@ hr{ color: #4e4e4e; margin-top: 18px; }
 .tip .muted{opacity:.9; font-size:13px; line-height:1.4}
 
 .tabs{margin-top:18px}
-.tab-headers{display:flex;gap:8px;margin-bottom:8px}
-.tab-headers button{
-    background:var(--pill); border:1px solid var(--border); color:#111827; padding:8px 12px;
-    border-radius:999px; cursor:pointer; font-weight:600; letter-spacing:.2px;
+
+.tab-headers {
+    display: flex;
+    gap: 0;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%; /* 전체 너비를 채우게 */
+    max-width: 600px; /* 필요시 제한 */
+}
+
+.tab-headers button {
+    flex: 1; /* 버튼 크기를 균등하게 분배 */
+    text-align: center;
+    background: #fff;
+    border: none;
+    color: #111827;
+    padding: 8px 0;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: .2px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab-headers button:last-child {
+    border-right: none; /* 마지막 버튼은 오른쪽 선 제거 */
+}
+
+.tab-headers button.active {
+    background: #6236ae;
+    color: #fff;
 }
 .tab-headers button.active{background:#6236ae;color:#fff;border-color:#6a25f4}
 
