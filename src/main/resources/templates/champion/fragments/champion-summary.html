@@ -1,0 +1,32 @@
+<!-- templates/fragments/champion-summary.html -->
+<div th:fragment="summary (iconUrl, champ, v, passiveIcon, spells)">
+    <div class="header-card">
+        <img class="avatar" th:src="${iconUrl}" alt="챔피언 아이콘"/>
+
+        <div class="title">
+            <h1>
+                <span th:text="${champ.name}">징크스</span>
+                <small th:text="${champ.title}">난폭한 말괄량이</small>
+            </h1>
+            <div class="version" th:text="'v' + ${v}">v15.18.1</div>
+
+            <!-- 스킬 아이콘 + 툴팁 -->
+            <div class="skill-row">
+                <div class="skill" th:if="${passiveIcon != null}">
+                    <img th:src="${passiveIcon}" alt="P"/>
+                    <div class="tip">
+                        <b th:text="'P - ' + ${champ.passive.name}">신난다!</b>
+                        <div class="muted" th:text="${champ.passive.description}"></div>
+                    </div>
+                </div>
+                <div class="skill" th:each="s, i : ${spells}">
+                    <img th:src="${s.icon}" th:alt="${s.id}"/>
+                    <div class="tip">
+                        <b th:text="${#strings.substring('QWER', i.index, i.index + 1)} + ' - ' + ${s.name}"></b>
+                        <div class="muted" th:utext="${s.tooltip}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

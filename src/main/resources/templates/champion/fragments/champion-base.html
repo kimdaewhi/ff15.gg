@@ -1,0 +1,33 @@
+<section class="tab-panel active" id="tab-base" th:fragment="base (champ, roleIcons)">
+    <h2>역할군</h2>
+    <!-- 역할군 아이콘 -->
+    <div class="role-icons">
+        <div th:each="role : ${roleIcons}" class="role-item">
+            <img th:src="${role.icon}" th:alt="${role.name}" class="role-icon"/>
+            <span th:text="${role.name}" class="role-name"></span>
+        </div>
+    </div>
+
+    <hr/>
+
+    <h2>기본 스탯</h2>
+    <div class="stats-grid" th:if="${champ.stats != null}">
+        <div><span>체력</span><b th:text="${champ.stats.hp}"></b></div>
+        <div><span>성장 체력</span><b th:text="${champ.stats.hpperlevel}"></b></div>
+        <div><span>공격력</span><b th:text="${champ.stats.attackdamage}"></b></div>
+        <div><span>성장 공격력</span><b th:text="${champ.stats.attackdamageperlevel}"></b></div>
+        <div><span>마나/자원</span><b th:text="${champ.stats.mp}"></b></div>
+        <div><span>성장 자원</span><b th:text="${champ.stats.mpperlevel}"></b></div>
+        <div><span>공속</span><b th:text="${champ.stats.attackspeed}"></b></div>
+        <div><span>이동속도</span><b th:text="${champ.stats.movespeed}"></b></div>
+        <div><span>방어력</span><b th:text="${champ.stats.armor}"></b></div>
+        <div><span>마법저항력</span><b th:text="${champ.stats.spellblock}"></b></div>
+        <div><span>사거리</span><b th:text="${champ.stats.attackrange}"></b></div>
+        <div><span>체력 재생</span><b th:text="${champ.stats.hpregen}"></b></div>
+    </div>
+
+    <hr/>
+
+    <h2>배경</h2>
+    <p class="lore" th:text="${champ.lore != null ? champ.lore : champ.blurb}">설명</p>
+</section>

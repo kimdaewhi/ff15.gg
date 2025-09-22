@@ -1,0 +1,8 @@
+<section class="tab-panel" id="tab-skins" th:fragment="skins (skins)">
+    <div class="skins" th:if="${skins != null}">
+        <figure class="skin" th:each="sk : ${skins}">
+            <img th:src="${sk.splash}" th:alt="${sk.name}"/>
+            <figcaption th:text="${sk.name}">기본 스킨</figcaption>
+        </figure>
+    </div>
+</section>
