@@ -205,3 +205,87 @@ hr{ color: #4e4e4e; margin-top: 18px; }
     font-weight: 500;
     color: #333;
 }
+
+/* 룬 관련 스타일 */
+.rune-page {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.rune-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rune-tree.primary {
+    width: 220px;
+}
+
+.rune-tree.secondary {
+    width: 160px;
+}
+
+.keystone {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.rune-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rune-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.rune-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    opacity: 100; /* 기본은 흐리게 */
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.rune-icon.big {
+    width: 48px;
+    height: 48px;
+}
+
+.rune-icon.selected {
+    opacity: 1;
+    transform: scale(1.05);
+    border: 2px solid #6236ae;
+    border-radius: 50%;
+}
+
+.rune-icon.faded {
+    opacity: 0.2;
+}
+
+.stat-shards {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.shard-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    opacity: 0.3;
+}
+
+.shard-icon.selected {
+    opacity: 1;
+    border: 2px solid #6236ae;
+}
+
