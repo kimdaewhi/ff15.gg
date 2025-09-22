@@ -8,6 +8,7 @@ import config.RiotRole
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import plugins.httpClient
+import utils.ChampionPositionLoader
 
 object RiotChampionService {
 
@@ -114,8 +115,6 @@ object RiotChampionService {
 
         // 역할군
         val roleIcon = champion.tags.mapNotNull { tag ->
-            // val tagIcon = "/static/images/role/$tag.svg"
-            // mapOf("name" to tag, "icon" to tagIcon)
             RiotRole.fromTag(tag)?.let { role ->
                 val tagIcon = "/static/images/role/$tag.svg"
                 mapOf(
@@ -125,8 +124,14 @@ object RiotChampionService {
             }
         }
 
-        println(champion)
-        println(roleIcon)
+        // 포지션
+        val positions = ChampionPositionLoader.getPosition(championId).map { pos ->
+            mapOf(
+                "name" to pos,
+                "icon" to "/static/images/position/$pos.png"
+            )
+        }
+
 
         val model = mapOf(
             "v" to version,
@@ -135,7 +140,8 @@ object RiotChampionService {
             "passiveIcon" to passiveIconUrl,
             "spells" to spellsView,
             "skins" to skinImages,
-            "roleIcons" to roleIcon
+            "roleIcons" to roleIcon,
+            "positions" to positions
         )
 
         return model

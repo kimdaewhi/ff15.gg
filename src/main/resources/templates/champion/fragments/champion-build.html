@@ -1,10 +1,15 @@
-<section class="tab-panel" id="tab-build" th:fragment="build">
+<section class="tab-panel" id="tab-build" th:fragment="build(positions)">
+<!--    <div class="build-position" id="build-position">-->
+<!--        <button class="position-btn" data-pos="Top">-->
+<!--            <img class="position-img" src="/static/images/position/Top.png" alt="Top"/>-->
+<!--        </button>-->
+<!--        <button class="position-btn" data-pos="Jungle">-->
+<!--            <img class="position-img" src="/static/images/position/Jungle.png" alt="Jungle"/>-->
+<!--        </button>-->
+<!--    </div>-->
     <div class="build-position" id="build-position">
-        <button class="position-btn" data-pos="Top">
-            <img class="position-img" src="/static/images/position/Top.png" alt="Top"/>
-        </button>
-        <button class="position-btn" data-pos="Jungle">
-            <img class="position-img" src="/static/images/position/Jungle.png" alt="Jungle"/>
+        <button class="position-btn" th:each="p : ${positions}" th:attr="data-pos=${p.name}">
+            <img class="position-img" th:src="${p.icon}" th:alt="${p.name}"/>
         </button>
     </div>
     <p class="placeholder">빌드/룬/아이템은 추후 DDragon 외부 데이터로 연동 예정입니다.</p>

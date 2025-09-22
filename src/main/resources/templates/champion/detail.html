@@ -31,7 +31,7 @@
             <div th:replace="~{champion/fragments/champion-base :: base(${champ}, ${roleIcons})}"></div>
 
             <!-- 빌드 -->
-            <div th:replace="~{champion/fragments/champion-build :: build}"></div>
+            <div th:replace="~{champion/fragments/champion-build :: build(${positions})}"></div>
 
             <!-- 스킨 -->
             <div th:replace="~{champion/fragments/champion-skins :: skins(${skins})}"></div>
