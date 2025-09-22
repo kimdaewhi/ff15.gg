@@ -125,6 +125,8 @@ object RiotChampionService {
             }
         }
 
+        println(champion)
+        println(roleIcon)
 
         val model = mapOf(
             "v" to version,
