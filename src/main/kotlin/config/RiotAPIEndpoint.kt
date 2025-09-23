@@ -76,30 +76,36 @@ object RiotEndpointUrl {
 
 
 object DataDragonUrl {
+    // 버전 & 지역 데이터
     const val VERSIONS = "https://ddragon.leagueoflegends.com/api/versions.json"                                                    // 버전
     const val REALM_DATA = "https://ddragon.leagueoflegends.com/realms/{realm}.json"                                                // 지역
 
+    // 챔피언 관련 데이터
     const val CHAMPION_LIST_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/champion.json"                // 챔피언 전체 정보
     const val CHAMPION_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/champion/{championId}.json"        // 특정 챔피언 정보
     const val CHAMPION_SPLASH_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{championId}_{num}.jpg"          // 챔피언 스플래시 아트
     const val CHAMPION_LOADING_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{championId}_{num}.jpg"        // 챔피언 로딩아트
     const val CHAMPION_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/champion/{championId}.png"               // 챔피언 아이콘
-
     const val CHAMPION_PASSIVE_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/passive/{championPassiveId}"          // 챔피언 패시브 아이콘
     const val CHAMPION_SPELL_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/spell/{championSpellId}"                // 챔피언 스킬 아이콘
 
+    // 아이템 관련 데이터
     const val ITEM__LIST_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/item.json"                       // 아이템 전체 정보
     const val ITEM_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/item/{itemId}.png"                           // 아이템 아이콘
 
+    // 소환사 스펠 관련 데이터
     const val SUMMONER_SPELL_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/summoner.json"               // 소환사 주문 전체 정보
     const val SUMMONER_SPELL_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/spell/{summonerSpellId}.png"       // 소환사 주문 아이콘
 
+    // 룬 관련 데이터
     const val RUNE_LIST_INFO = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/runesReforged.json"               // 룬 정보
     const val RUNE_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/img/{runeIcon}.png"                                        // 룬 아이콘
 
+    // 프로필 아이콘 관련 데이터
     const val PROFILE_ICON_LIST = "https://ddragon.leagueoflegends.com/cdn/{version}/data/{language}/profileicon.json"              // 소환사 프로필 아이콘 전체정보
     const val PROFILE_ICON_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/profileicon/{profileIconId}.png"          // 소환사 프로필 아이콘
 
+    // 맵 관련 데이터
     const val MAP_INFO = "https://static.developer.riotgames.com/docs/lol/maps.json"                                                // 맵 정보
     const val MINIMAP_ASSET = "https://ddragon.leagueoflegends.com/cdn/{version}/img/map/map{mapId}.png"                            // 미니맵
 }

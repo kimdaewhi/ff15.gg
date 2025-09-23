@@ -227,10 +227,20 @@ hr{ color: #4e4e4e; margin-top: 18px; }
     width: 160px;
 }
 
+.tree {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tree img {
+    width: 20px;
+}
+
 .keystone {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .rune-slots {
@@ -269,7 +279,7 @@ hr{ color: #4e4e4e; margin-top: 18px; }
     opacity: 0.2;
 }
 
-.stat-shards {
+.stat-mods {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
