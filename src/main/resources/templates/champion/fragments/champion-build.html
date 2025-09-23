@@ -15,65 +15,94 @@
 
     <!-- 룬 페이지 -->
     <h2>징크스 빌드</h2>
-    <div>
+    <div class="rune-container">
+        <!-- 주/부 룬 페이지 -->
         <div class="rune-page">
-            <!-- 빌드 -->
-            <div class="tree">
-                <img src="/static/images/runes/Precision/7201_Precision.png" alt="정밀"/>
-                <img src="/static/images/runes/Domination/7200_Domination.png" alt="지배"/>
-                <img src="/static/images/runes/Sorcery/7202_Sorcery.png" alt="마법"/>
-                <img src="/static/images/runes/Resolve/7204_Resolve.png" alt="결의"/>
-                <img src="/static/images/runes/Inspiration/7203_Whimsy.png" alt="영감"/>
-            </div>
-
             <!-- 주 룬 트리 -->
             <div class="rune-tree primary">
-                <div class="rune-slots">
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Precision/LethalTempoTemp.png" alt="치명적 속도" />
-                    </div>
+                <!-- 트리 아이콘 -->
+                <div class="tree-header">
+                    <img src="/static/images/runes/Precision/7201_Precision.png" alt="정밀"/>
+                    <img src="/static/images/runes/Domination/7200_Domination.png" alt="지배"/>
+                    <img src="/static/images/runes/Sorcery/7202_Sorcery.png" alt="마법"/>
+                    <img src="/static/images/runes/Resolve/7204_Resolve.png" alt="결의"/>
+                    <img src="/static/images/runes/Inspiration/7203_Whimsy.png" alt="영감"/>
+                </div>
 
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Precision/CoupDeGrace.png" alt="승전보" />
-                    </div>
+                <!-- 키스톤 -->
+                <div class="rune-row-keystone">
+                    <img class="rune-icon big" src="/static/images/runes/Precision/PressTheAttack.png" alt="집중 공격"/>
+                    <img class="rune-icon big" src="/static/images/runes/Precision/LethalTempoTemp.png" alt="치명적 속도"/>
+                    <img class="rune-icon big" src="/static/images/runes/Precision/FleetFootwork.png" alt="기민한 발놀림"/>
+                    <img class="rune-icon big" src="/static/images/runes/Precision/Conqueror.png" alt="정복자"/>
+                </div>
 
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Precision/LegendAlacrity.png" alt="전설: 민첩함" />
-                    </div>
-
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Precision/CutDown.png" alt="체력차 극복" />
-                    </div>
+                <!-- 일반 룬 3줄 -->
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Precision/AbsorbLife.png" alt="생명 흡수"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/Triumph.png" alt="승전보"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/PresenceOfMind.png" alt="침착"/>
+                </div>
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Precision/LegendAlacrity.png" alt="전설: 민첩함"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/LegendHaste.png" alt="전설: 가속"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/LegendBloodline.png" alt="전설: 핏빛길"/>
+                </div>
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Precision/CoupDeGrace.png" alt="최후의 일격"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/CutDown.png" alt="체력차 극복"/>
+                    <img class="rune-icon" src="/static/images/runes/Precision/LastStand.png" alt="최후의 저항"/>
                 </div>
             </div>
 
-            <!-- 보조 룬 트리 -->
+            <!-- 부 룬 트리 -->
             <div class="rune-tree secondary">
-                <div class="rune-slots">
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Inspiration/7203_Whimsy.png" alt="영감"/>
-                    </div>
+                <!-- 트리 아이콘 -->
+                <div class="tree-header">
+                    <img src="/static/images/runes/Domination/7200_Domination.png" alt="지배"/>
+                    <img src="/static/images/runes/Sorcery/7202_Sorcery.png" alt="마법"/>
+                    <img src="/static/images/runes/Resolve/7204_Resolve.png" alt="결의"/>
+                    <img src="/static/images/runes/Inspiration/7203_Whimsy.png" alt="영감"/>
+                </div>
 
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Inspiration/MagicalFootwear.png" alt="마법의 신발"/>
-                    </div>
+                <!-- 보조 룬 3줄 (선택/비선택 구분은 나중에) -->
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/Axiom_Arcanist.png" alt="엑시옴 비전 마법사"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/ManaflowBand.png" alt="마나순환 팔찌"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/6361.png" alt="빛의 망토"/>
+                </div>
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/Transcendence.png" alt="깨달음"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/CelerityTemp.png" alt="기민함"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/AbsoluteFocus.png" alt="절대 집중"/>
+                </div>
+                <div class="rune-row">
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/Scorch.png" alt="주문 작열"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/Waterwalking.png" alt="물 위를 걷는 자"/>
+                    <img class="rune-icon" src="/static/images/runes/Sorcery/GatheringStorm.png" alt="폭풍의 결집"/>
+                </div>
 
-                    <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Inspiration/BiscuitDelivery.png" alt="비스킷 배달"/>
-                    </div>
 
+                <!-- 룬 파편 -->
+                <div class="stat-shards">
                     <div class="rune-row">
-                        <img class="rune-icon" src="/static/images/runes/Inspiration/CosmicInsight.png" alt="우주적 통찰력"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodsadaptiveforceicon.png" alt="적응형 능력치"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodsattackspeedicon.png" alt="공격 속도"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodscdrscalingicon.png" alt="스킬 가속"/>
+                    </div>
+                    <div class="rune-row">
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodsadaptiveforceicon.png" alt="적응형 능력치"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodsmovementspeedicon.png" alt="이동 속도"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodshealthplusicon.png" alt="체력 증가"/>
+                    </div>
+                    <div class="rune-row">
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodshealthscalingicon.png" alt="체력"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodstenacityicon.png" alt="강인함 및 둔화 저항"/>
+                        <img class="shard-icon" src="/static/images/runes/Statmods/statmodshealthplusicon.png" alt="체력 증가"/>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 스탯 파편 -->
-        <div class="stat-mods">
-            <div class="rune-row">
-                <img class="mods-icon" src="/static/images/runes/Statmods/statmodsadaptiveforceicon.png" alt="Adaptive Force"/>
-            </div>
         </div>
     </div>
 </section>
