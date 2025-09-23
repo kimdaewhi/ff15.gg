@@ -163,9 +163,10 @@ data class RiotPassiveDto(
 
 // 챔피언 요약 정보
 @Serializable
-data class ChampionIcon(
+data class ChampionSummary(
     val id: String,          // 챔피언 ID(Jinx)
     val key: Int,            // 222 (DDragon의 key는 문자열이므로 toInt)
     val name: String,        // 이름(locale 적용)
-    val iconUrl: String      // 챔피언 아이콘
+    val iconUrl: String,     // 챔피언 아이콘
+    val position: String     // 포지션
 )

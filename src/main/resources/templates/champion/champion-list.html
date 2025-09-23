@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- 파비콘 -->
     <link rel="icon" type="image/png" href="/static/images/ff15-favicon.svg">
-    
+
     <title>챔피언 목록</title>
     <link rel="stylesheet" href="/static/css/champions.css"/>
 
     <!-- Ribbon Menu -->
     <link rel="stylesheet" href="/static/css/ribbon.css">
+    <script src="/static/js/champion-list.js"></script>
 </head>
 
 <body>
@@ -18,11 +19,39 @@
 
 <section class="container">
     <div class="card">
-        <div class="grid">
-            <a class="tile" th:each="c : ${champions}" th:href="${'/champion/' + c.id}">
-                <div class="thumb">
-                    <img th:src="${c.iconUrl}" th:alt="${c.name}"/>
-                </div>
+
+        <!-- 검색 + 포지션 필터 -->
+        <div class="filter-bar">
+            <!-- 검색 -->
+            <input id="champion-search" type="text" placeholder="챔피언 검색 (가렌, 그웬...)" />
+
+            <!-- 포지션 필터 -->
+            <div class="position-filters">
+                <button class="pos-btn active" data-pos="All">
+                    <img src="/static/images/position/all.svg" alt="전체"/>
+                </button>
+                <button class="pos-btn" data-pos="Top">
+                    <img src="/static/images/position/Top.png" alt="탑"/>
+                </button>
+                <button class="pos-btn" data-pos="Jungle">
+                    <img src="/static/images/position/Jungle.png" alt="정글"/>
+                </button>
+                <button class="pos-btn" data-pos="Mid">
+                    <img src="/static/images/position/Mid.png" alt="미드"/>
+                </button>
+                <button class="pos-btn" data-pos="Bottom">
+                    <img src="/static/images/position/Bottom.png" alt="원딜"/>
+                </button>
+                <button class="pos-btn" data-pos="Supporter">
+                    <img src="/static/images/position/Supporter.png" alt="서포터"/>
+                </button>
+            </div>
+        </div>
+
+        <!-- 챔피언 리스트 -->
+        <div class="grid" id="champion-grid">
+            <a class="tile" th:each="c : ${champions}" th:data-name="${c.name}"  th:data-position="${c.position}" th:href="${'/champion/' + c.id}">
+                <div class="thumb"><img th:src="${c.iconUrl}" th:alt="${c.name}"/></div>
                 <p class="name" th:text="${c.name}"></p>
             </a>
         </div>

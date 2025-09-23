@@ -86,6 +86,65 @@ a.tile .name {
 }
 
 
+/* Autocomplete & 필터 버튼 스타일 */
+.filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#champion-search {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+}
+
+#champion-search:focus {
+    border-color: #6236ae;
+    box-shadow: 0 0 0 2px rgba(98, 54, 174, 0.2);
+}
+
+.position-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pos-btn {
+    display: flex;              /* flex 컨테이너 */
+    justify-content: center;    /* 가로 가운데 */
+    align-items: center;        /* 세로 가운데 */
+    padding: 0;                 /* 여백 제거 */
+    width: 42px;
+    height: 42px;
+    font-size: 13px;
+    border: 0.5px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pos-btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.pos-btn:hover {
+    background: #f3f4f6;
+}
+
+.pos-btn.active {
+    background: #d2baff;
+    color: #fff;
+    border-color: #6236ae;
+}
+/* Autocomplete & 필터 버튼 스타일 end */
+
+
 @media (prefers-reduced-motion: reduce) {
     .thumb, .thumb img { transition: none; }
 }

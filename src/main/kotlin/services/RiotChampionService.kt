@@ -1,7 +1,7 @@
 package services
 
 import DTO.RiotChampionCatalogDto
-import DTO.ChampionIcon
+import DTO.ChampionSummary
 import DTO.RiotChampionDetailCatalogDto
 import config.RiotEndpoints
 import config.RiotRole
@@ -22,19 +22,17 @@ object RiotChampionService {
 
 
     suspend fun getChampionSummaryInfo(params: Map<String, String>
-    ): List<ChampionIcon> {
+    ): List<ChampionSummary> {
         // 1) 목록 URL 구성
         val listUrl = RiotEndpoints.Champion.getChampionList(params)
 
         // 2) GET → 3) ChampionCatalogDto로 파싱
         val catalog: RiotChampionCatalogDto = httpClient.get(listUrl).body()
 
-        // 4) ChampionIcon 생성 (아이콘 URL은 Endpoints로 치환)
-        val icons = catalog.data.values.map { dto ->
+        // 4) ChampionSummary 생성 (아이콘 URL은 Endpoints로 치환)
+        val results = catalog.data.values.map { dto ->
             // 안전한 아이콘 ID: "LeeSin.png" → "LeeSin"
             val championIdForIcon = dto.image.full.substringBeforeLast('.')
-
-            // https://ddragon.../cdn/{version}/img/champion/{championId}.png
             val iconUrl = RiotEndpoints.Champion.getChampionIconUrl(
                 params = mapOf(
                     "version" to catalog.version,   // 루트의 version 사용
@@ -42,16 +40,22 @@ object RiotChampionService {
                 )
             )
 
-            ChampionIcon(
+            val positions = ChampionPositionLoader.getPosition(dto.id).map { pos ->
+                mapOf("name" to pos)
+            }
+
+            ChampionSummary(
                 id = dto.id,                       // "LeeSin"
                 key = dto.key.toIntOrNull() ?: -1, // "64" -> 64
                 name = dto.name,                   // locale 이름
-                iconUrl = iconUrl
+                iconUrl = iconUrl,
+                position = positions.joinToString(", ") { it["name"] ?: "" }
             )
         }
 
+        println(results)
         // 5) 완성된 리스트 반환 (원하면 이름순 정렬)
-        return icons.sortedBy { it.name }
+        return results.sortedBy { it.name }
     }
 
     suspend fun getChampionDetailInfo(version: String, language: String, championId: String): Map<String, Any?> {
