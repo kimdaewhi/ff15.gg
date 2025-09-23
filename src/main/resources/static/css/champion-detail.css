@@ -240,6 +240,8 @@ hr{ color: #4e4e4e; margin-top: 18px; }
     border-radius: 50%;
     padding: 3px;
     background: #232323;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 .rune-row {
@@ -260,12 +262,16 @@ hr{ color: #4e4e4e; margin-top: 18px; }
     height: 36px;
     border-radius: 50%;
     transition: opacity 0.2s, transform 0.2s;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 .rune-icon.big {
     width: 44px;
     height: 44px;
     background: #232323;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 .stat-shards {
@@ -277,10 +283,12 @@ hr{ color: #4e4e4e; margin-top: 18px; }
 }
 
 .shard-icon {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #232323;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 

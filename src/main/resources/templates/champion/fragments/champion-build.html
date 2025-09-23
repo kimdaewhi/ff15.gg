@@ -1,12 +1,4 @@
 <section class="tab-panel" id="tab-build" th:fragment="build(positions)">
-<!--    <div class="build-position" id="build-position">-->
-<!--        <button class="position-btn" data-pos="Top">-->
-<!--            <img class="position-img" src="/static/images/position/Top.png" alt="Top"/>-->
-<!--        </button>-->
-<!--        <button class="position-btn" data-pos="Jungle">-->
-<!--            <img class="position-img" src="/static/images/position/Jungle.png" alt="Jungle"/>-->
-<!--        </button>-->
-<!--    </div>-->
     <div class="build-position" id="build-position">
         <button class="position-btn" th:each="p : ${positions}" th:attr="data-pos=${p.name}">
             <img class="position-img" th:src="${p.icon}" th:alt="${p.name}"/>
